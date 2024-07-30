@@ -1,12 +1,9 @@
 import cv2
 import image_utils
 
-from arduino_utils import ArduinoWrapper
-
 CLASS_NAMES = image_utils.load_classname('./model/labels.txt')
 
 cap = cv2.VideoCapture(0)
-arduino = ArduinoWrapper()
 
 while cap.isOpened():
 	
@@ -19,8 +16,6 @@ while cap.isOpened():
 	predicted_class, confidence = image_utils.predict(frame)
 
 	if predicted_class is not None:
-		
-		arduino.send_serial(predicted_class)
 
 		class_name = CLASS_NAMES[predicted_class]
 		cv2.putText(frame, f"Detected: {class_name}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
@@ -38,4 +33,3 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
-arduino.close_connection()

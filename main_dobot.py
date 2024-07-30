@@ -1,12 +1,17 @@
 import cv2
 import image_utils
 
+from dobot_utils import DobotWrapper
 from arduino_utils import ArduinoWrapper
 
-CLASS_NAMES = image_utils.load_classname('./model/labels.txt')
+CLASS_NAMES = image_utils.load_classname('../training/labels.txt')
 
 cap = cv2.VideoCapture(0)
 arduino = ArduinoWrapper()
+
+bot = DobotWrapper()
+bot.dashboard.EnableRobot()
+bot.dashboard.SpeedFactor(10)
 
 while cap.isOpened():
 	
