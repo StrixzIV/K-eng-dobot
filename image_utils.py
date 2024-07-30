@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 
 # Load the TensorFlow Lite model
-interpreter = tf.lite.Interpreter(model_path="../training/model_unquant.tflite")
+interpreter = tf.lite.Interpreter(model_path="./model/model_unquant.tflite")
 interpreter.allocate_tensors()
 
 # Get input and output tensors
