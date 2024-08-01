@@ -20,7 +20,7 @@ while cap.isOpened():
 
 	if predicted_class is not None:
 		
-		arduino.send_serial(predicted_class)
+		arduino.send_serial(str(predicted_class))
 
 		class_name = CLASS_NAMES[predicted_class]
 		cv2.putText(frame, f"Detected: {class_name}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
