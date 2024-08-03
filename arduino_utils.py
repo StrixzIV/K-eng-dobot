@@ -2,7 +2,7 @@ import serial
 
 class ArduinoWrapper:
 
-	def __init__(self, serial_port: str = 'COM4', braudrate: int = 9600):
+	def __init__(self, serial_port: str = 'COM3', braudrate: int = 9600):
      
 		print(f'Connecting to Arduino on {serial_port}...')
 
